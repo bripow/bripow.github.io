@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body>
+        <script src="three.min.js"></script>
+        <script src="GLTFLoader.js"></script>
+
+
+        <script>
+            let scene, camera, renderer;
+
+            function init(){
+
+                scene = new THREE.scene();
+                scene.baclground = new THREE.color(0xdddddd);
+
+                camera = new THEWW.PerspectiveCamera (40,window.innerWidth/window.innerHeight,1,5000);
+                hlight = new THREE.AmbientLight (0x404040);
+                scene.add(hlight);
+
+                renderer = new THREE.WebGLRenderer({antialias:true});
+                renderer.setSize(window.innerWidth,window.innerHeight);
+                document.body.appendChild(renderer.domElement);
+
+                let loader = new THREE.GLTFLoader();
+                loader.Load('scene.gltf'), function(gltf){
+                    scene.add(gltf.scene)
+                    renderer.render(scene,camera);
+
+                };
+             }
+             init();
+        </script>
+    </body>
+</html>
