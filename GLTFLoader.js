@@ -3997,4 +3997,4 @@
 
 	THREE.GLTFLoader = GLTFLoader;
 
-} )();
+} )
